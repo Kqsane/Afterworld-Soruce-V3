@@ -1,0 +1,14 @@
+newmtl Player11Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.4 0.4 0.4 
+
+d 1
+
+Ns 2295
+
+map_Ka /Thumbs/3dUsers/871acffcf88c4fae137cb299783ac06c.png
+map_Kd /Thumbs/3dUsers/871acffcf88c4fae137cb299783ac06c.png
+map_d /Thumbs/3dUsers/871acffcf88c4fae137cb299783ac06c.png
+

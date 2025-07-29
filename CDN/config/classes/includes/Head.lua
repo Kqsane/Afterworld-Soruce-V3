@@ -1,0 +1,147 @@
+-- Head v1.2.0
+
+local assetUrl = "rbxassetid://%assetid%"
+local baseUrl = "%url%"
+local fileExtension = "PNG"
+local x, y = 352, 352
+local mannequinId = 1785197
+game.DescendantAdded:connect(function(obj)
+	-- ASSET FIXER MADE BY MEDITEXT
+	-- BaseParts renderers
+	if obj:IsA("SpecialMesh") and obj.MeshType == Enum.MeshType.FileMesh then
+		if not string.find(obj.MeshId, "roblox.com") and string.find(obj.MeshId, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.MeshId, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.MeshId = b
+		if not string.find(obj.TextureId, "roblox.com") and not string.find(obj.TextureId, "blox14.lol") then
+			return -- ignore
+		end
+		local c = string.gsub(obj.TextureId, "roblox.com", "aftwld.com")
+		local d = string.gsub(c, "blox14.lol", "aftwld.com")
+		obj.TextureId = d
+	elseif obj:IsA("Decal") or obj:IsA("Texture") then
+		if not string.find(obj.Texture, "roblox.com") and not string.find(obj.Texture, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.Texture, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.Texture = b
+	-- player exclusive
+	elseif obj:IsA("Tool") or obj:IsA("HopperBin") then
+		if not string.find(obj.TextureId, "roblox.com") and not string.find(obj.TextureId, "blox14.lol") then
+			return -- ignore
+		end
+		local c = string.gsub(obj.TextureId, "roblox.com", "aftwld.com")
+		local d = string.gsub(c, "blox14.lol", "aftwld.com")
+		obj.TextureId = d
+	elseif obj:IsA("Shirt") then
+		if not string.find(obj.ShirtTemplate, "roblox.com") and not string.find(obj.ShirtTemplate, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.ShirtTemplate, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.ShirtTemplate = b
+	elseif obj:IsA("ShirtGraphic") then
+		if not string.find(obj.Graphic, "roblox.com") and not string.find(obj.Graphic, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.Graphic, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.Graphic = a
+	elseif obj:IsA("Pants") then
+		if not string.find(obj.PantsTemplate, "roblox.com") and not string.find(obj.PantsTemplate, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.PantsTemplate, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.PantsTemplate = b
+	-- Player UI
+	elseif obj:IsA("ImageButton") or obj:IsA("ImageLabel") then
+		if not string.find(obj.Image, "roblox.com") and not string.find(obj.Image, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.Image, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.Image = b
+	-- Legacy/Local scripts
+	elseif obj:IsA("Script") or obj:IsA("LocalScript") or obj:IsA("ModuleScript") then
+		if not string.find(obj.Source, "roblox.com") and not string.find(obj.Source, "blox14.lol") then
+			return -- ignore
+		end
+		local a = obj.Source
+		a = a:gsub("roblox.com","aftwld.com"):gsub("blox14.lol","aftwld.com")
+		obj.Source = a
+	-- Sounds and misc
+	elseif obj:IsA("Sound") then
+		if not string.find(obj.SoundId, "roblox.com") and not string.find(obj.SoundId, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.SoundId, "roblox.com", "aftwld.com")
+		local b = string.gsub(a, "blox14.lol", "aftwld.com")
+		obj.SoundId = b
+	end
+end)
+local ThumbnailGenerator = game:GetService("ThumbnailGenerator")
+-- Modules
+local CreateExtentsMinMax
+local MannequinUtility
+local ScaleUtility
+
+pcall(function() game:GetService("ContentProvider"):SetBaseUrl(baseUrl) end)
+game:GetService("ScriptContext").ScriptsDisabled = true
+
+local objects = game:GetObjects(assetUrl)
+
+local headScaleType
+local mannequin
+
+
+mannequin = game:GetObjects("rbxassetid://".. tostring(mannequinId))[1]
+mannequin.Parent = workspace
+
+local function addFaceDecal(head)
+	if head:FindFirstChild("face") then
+		return
+	end
+
+	local face = Instance.new("Decal")
+	face.Name = "face"
+	face.Texture = "rbxasset://textures/face.png"
+	face.Parent = head
+end
+
+local function replaceMannequinHeadWithMeshHead()
+	for _, obj in pairs(objects) do
+		if obj:IsA("Folder") and obj.Name == "R15ArtistIntent" then
+			local head = obj.Head
+			addFaceDecal(head)
+			mannequin.Head:Destroy()
+			head.Parent = mannequin
+		end
+	end
+end
+
+local headObject = objects[1]
+
+mannequin.Head.BrickColor = BrickColor.Gray()
+
+if mannequin.Head:FindFirstChild("Mesh") then
+	mannequin.Head.Mesh:Destroy()
+end
+headObject.Parent = mannequin.Head
+
+
+for _, child in pairs(mannequin:GetChildren()) do
+	if child:IsA("BasePart") and child.Name ~= "Head" then
+		child:Destroy()
+	end
+end
+
+local shouldCrop = false
+local extentsMinMax
+
+local result, requestedUrls = ThumbnailGenerator:Click(fileExtension, x, y, --[[hideSky = ]] true, shouldCrop, extentsMinMax)
+
+return result, requestedUrls
