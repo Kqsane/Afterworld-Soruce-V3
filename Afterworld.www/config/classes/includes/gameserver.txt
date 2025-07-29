@@ -1,0 +1,236 @@
+
+------------------- UTILITY FUNCTIONS --------------------------
+
+
+-----------------------------------END UTILITY FUNCTIONS -------------------------
+
+-----------------------------------"CUSTOM" SHARED CODE----------------------------------
+
+pcall(function() settings().Network.UseInstancePacketCache = true end)
+pcall(function() settings().Network.UsePhysicsPacketCache = true end)
+--pcall(function() settings()["Task Scheduler"].PriorityMethod = Enum.PriorityMethod.FIFO end)
+pcall(function() settings()["Task Scheduler"].PriorityMethod = Enum.PriorityMethod.AccumulatedError end)
+
+--settings().Network.PhysicsSend = 1 -- 1==RoundRobin
+--settings().Network.PhysicsSend = Enum.PhysicsSendMethod.ErrorComputation2
+settings().Network.PhysicsSend = Enum.PhysicsSendMethod.TopNErrors
+settings().Network.ExperimentalPhysicsEnabled = true
+settings().Network.WaitingForCharacterLogRate = 100
+pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+
+-----------------------------------START GAME SHARED SCRIPT------------------------------
+
+local assetId = %placeId% -- might be able to remove this now
+local port = %port%
+local url = "http://www.%url%/"
+local domain = "%domain%"
+local ownerId = %creatorid%
+
+local scriptContext = game:GetService('ScriptContext')
+scriptContext.ScriptsDisabled = true
+
+game:SetPlaceID(assetId, true)
+game:GetService("ChangeHistoryService"):SetEnabled(false)
+
+-- establish this peer as the Server
+local ns = game:GetService("NetworkServer")
+if url~=nil then
+	pcall(function() game:GetService("Players"):SetAbuseReportUrl(url .. "/AbuseReport/InGameChatHandler.ashx") end)
+	pcall(function() game:GetService("ScriptInformationProvider"):SetAssetUrl(url .. "/Asset/") end)
+	pcall(function() game:GetService("ContentProvider"):SetBaseUrl(url .. "") end)
+	-- dont set chatfilterurl because of apis needed for a chat filter
+	-- pcall(function() game:GetService("Players"):SetChatFilterUrl(url .. "/Game/ChatFilter.ashx") end)
+
+	game:GetService("BadgeService"):SetPlaceId(assetId)
+
+	game:GetService("BadgeService"):SetIsBadgeLegalUrl("")
+	game:GetService("InsertService"):SetBaseSetsUrl(url .. "/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
+	game:GetService("InsertService"):SetUserSetsUrl(url .. "/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
+	game:GetService("InsertService"):SetCollectionUrl(url .. "/Game/Tools/InsertAsset.ashx?sid=%d")
+	game:GetService("InsertService"):SetAssetUrl(url .. "/asset/?id=%d")
+	game:GetService("InsertService"):SetAssetVersionUrl(url .. "/Asset/?assetversionid=%d")
+	pcall(function() game:SetCreatorID(ownerId, Enum.CreatorType.User) end)
+
+pcall(function() game:GetService("SocialService"):SetFriendUrl(url .. "/Game/LuaWebService/HandleSocialRequest.ashx?method=IsFriendsWith&playerid=%d&userid=%d") end)
+pcall(function() game:GetService("SocialService"):SetBestFriendUrl(url .. "/Game/LuaWebService/HandleSocialRequest.ashx?method=IsBestFriendsWith&playerid=%d&userid=%d") end)
+pcall(function() game:GetService("SocialService"):SetGroupUrl(url .. "/Game/LuaWebService/HandleSocialRequest.ashx?method=IsInGroup&playerid=%d&groupid=%d") end)
+pcall(function() game:GetService("SocialService"):SetGroupRankUrl(url .. "/Game/LuaWebService/HandleSocialRequest.ashx?method=GetGroupRank&playerid=%d&groupid=%d") end)
+pcall(function() game:GetService("SocialService"):SetGroupRoleUrl(url .. "/Game/LuaWebService/HandleSocialRequest.ashx?method=GetGroupRole&playerid=%d&groupid=%d") end)
+pcall(function() game:GetService("GamePassService"):SetPlayerHasPassUrl(url .. "/Game/GamePass/GamePassHandler.ashx?Action=HasPass&UserID=%d&PassID=%d") end)
+pcall(function() game:GetService("MarketplaceService"):SetProductInfoUrl(url .. "/marketplace/productinfo?assetId=%d") end)
+pcall(function() game:GetService("MarketplaceService"):SetDevProductInfoUrl(url .. "/marketplace/productDetails?productId=%d") end)
+pcall(function() game:GetService("MarketplaceService"):SetPlayerOwnsAssetUrl(url .. "/ownership/hasasset?userId=%d&assetId=%d") end)
+pcall(function() game:SetPlaceVersion(1) end)
+pcall(function() game:SetVIPServerOwnerId(68816760) end)
+	
+	-- pcall(function() 
+	--			if access then
+	--				loadfile(url .. "/Game/PlaceSpecificScript.ashx?PlaceId=" .. placeId .. "&" .. access)()
+	--			end
+	--		end)
+end
+--pcall(function() game:GetService("NetworkServer"):SetIsPlayerAuthenticationRequired(false) end)
+settings().Diagnostics.LuaRamLimit = 0
+--settings().Network:SetThroughputSensitivity(0.08, 0.01)
+--settings().Network.SendRate = 35
+--settings().Network.PhysicsSend = 0  -- 1==RoundRobin
+
+
+game:GetService("Players").PlayerRemoving:connect(function(player)
+	print("Player " .. player.Name .. " leaving userId: " .. player.userId)
+end)
+-- yield so that file load happens in the heartbeat thread
+wait()
+	
+-- load the game
+game:Load(url .."/asset/?id=" .. assetId)
+
+local function checkforgears(player) -- made by meditext
+	-- this function checks if the player has gears that arent apart from the game
+	for i,v in pairs(player.StarterGear:GetChildren()) do
+		v:Destroy()
+	end
+	
+end
+-- Now start the connection
+ns:Start(port)-- old port address: 
+
+
+scriptContext:SetTimeout(0)
+scriptContext.ScriptsDisabled = false
+
+game.DescendantAdded:connect(function(obj)
+	-- ASSET FIXER MADE BY MEDITEXT
+	-- BaseParts renderers
+	if obj:IsA("SpecialMesh") and obj.MeshType == Enum.MeshType.FileMesh then
+		if not string.find(obj.MeshId, "roblox.com") and string.find(obj.MeshId, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.MeshId, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.MeshId = b
+		if not string.find(obj.TextureId, "roblox.com") and not string.find(obj.TextureId, "blox14.lol") then
+			return -- ignore
+		end
+		local c = string.gsub(obj.TextureId, "roblox.com", "aftwld.xyz")
+		local d = string.gsub(c, "blox14.lol", "aftwld.xyz")
+		obj.TextureId = d
+	elseif obj:IsA("Decal") or obj:IsA("Texture") then
+		if not string.find(obj.Texture, "roblox.com") and not string.find(obj.Texture, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.Texture, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.Texture = b
+	-- player exclusive
+	elseif obj:IsA("Tool") or obj:IsA("HopperBin") then
+		if not string.find(obj.TextureId, "roblox.com") and not string.find(obj.TextureId, "blox14.lol") then
+			return -- ignore
+		end
+		local c = string.gsub(obj.TextureId, "roblox.com", "aftwld.xyz")
+		local d = string.gsub(c, "blox14.lol", "aftwld.xyz")
+		obj.TextureId = d
+	elseif obj:IsA("Shirt") then
+		if not string.find(obj.ShirtTemplate, "roblox.com") and not string.find(obj.ShirtTemplate, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.ShirtTemplate, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.ShirtTemplate = b
+	elseif obj:IsA("ShirtGraphic") then
+		if not string.find(obj.Graphic, "roblox.com") and not string.find(obj.Graphic, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.Graphic, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.Graphic = a
+	elseif obj:IsA("Pants") then
+		if not string.find(obj.PantsTemplate, "roblox.com") and not string.find(obj.PantsTemplate, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.PantsTemplate, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.PantsTemplate = b
+	-- Player UI
+	elseif obj:IsA("ImageButton") or obj:IsA("ImageLabel") then
+		if not string.find(obj.Image, "roblox.com") and not string.find(obj.Image, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.Image, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.Image = b
+	-- Legacy/Local scripts
+	elseif obj:IsA("Script") or obj:IsA("LocalScript") or obj:IsA("ModuleScript") then
+		if not string.find(obj.Source, "roblox.com") and not string.find(obj.Source, "blox14.lol") then
+			return -- ignore
+		end
+		local a = obj.Source
+		a = a:gsub("roblox.com","aftwld.xyz"):gsub("blox14.lol","aftwld.xyz")
+		obj.Source = a
+	-- Sounds and misc
+	elseif obj:IsA("Sound") then
+		if not string.find(obj.SoundId, "roblox.com") and not string.find(obj.SoundId, "blox14.lol") then
+			return -- ignore
+		end
+		local a = string.gsub(obj.SoundId, "roblox.com", "aftwld.xyz")
+		local b = string.gsub(a, "blox14.lol", "aftwld.xyz")
+		obj.SoundId = b
+	end
+end)
+
+------------------------------END START GAME SHARED SCRIPT--------------------------
+print("Patched by meditation & hadi")
+print("JobId is " .. game.JobId)
+-- StartGame -- 
+game:GetService("RunService"):Run()
+
+function heartbeat()
+    while true do
+        print("sending heartbeat.")
+        pcall(function() game:HttpGet("http://devopstest1.aftwld.xyz/gsapis/heartBeat.php?jobId="..game.JobId.."&apiKey=qQSy7dxQRU3FCfV") end)
+        wait(1)
+    end
+end
+function checkPlayerLoop()
+	-- while loop to check if there are any players after lots of seconds and fires a job close api request
+	wait(10) -- hadi 
+	while true do
+		if #game:GetService("Players"):GetPlayers() == 0 then
+			print("Closing Job: " .. game.JobId)
+					
+						pcall(function() game:HttpGet("http://devopstest1.aftwld.xyz/gsapis/playercount.php?jobId="..game.JobId.."&apiKey=qQSy7dxQRU3FCfV".."&playerCount=0&playerlist=%5B%5D") end)
+			pcall(function() game:HttpGet("http://devopstest1.aftwld.xyz/gsapis/closeJob.php?jobId="..game.JobId.."&apiKey=qQSy7dxQRU3FCfV") end)
+			pcall(function() ns:Stop() end)
+			pcall(function() game:Shutdown() end)
+		else
+			local plrlist = {}
+			local index = 1
+			for _, v in pairs(game.Players:GetPlayers()) do
+				plrlist[index] = v.userId
+				index = index + 1
+			end
+			local HttpService = game:GetService("HttpService")
+
+			local function urlEncode(str)
+				return (str:gsub("[^%w%-._~]", function(c)
+					return string.format("%%%02X", string.byte(c))
+				end))
+			end
+
+			local function jsonToURLEncoded(tbl)
+				local jsonStr = HttpService:JSONEncode(tbl)
+				return urlEncode(jsonStr)
+			end
+			print(jsonToURLEncoded(plrlist))
+			local success, message = pcall(function() game:HttpGet("http://devopstest1.aftwld.xyz/gsapis/playercount.php?jobId="..game.JobId.."&apiKey=qQSy7dxQRU3FCfV".."&playerCount="..#game:GetService("Players"):GetPlayers().."&playerList=".. jsonToURLEncoded(plrlist)) end)
+			if not success then
+				warn(message)
+			end
+		end
+		wait(1)
+	end
+end
+spawn(checkPlayerLoop)
+spawn(heartbeat)
+--game.Workspace.FilteringEnabled = true
+return true
