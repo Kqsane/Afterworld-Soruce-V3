@@ -1,0 +1,6 @@
+Array
+(
+    [placeId] => 1
+    [type] => standard
+    [scope] => global
+)

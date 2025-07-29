@@ -1,0 +1,9 @@
+Array
+(
+    [placeId] => 1
+    [type] => sorted
+    [scope] => global
+    [key] => SingleplayerEndless
+    [pageSize] => 10
+    [ascending] => False
+)
