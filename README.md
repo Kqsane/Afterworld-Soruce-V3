@@ -10,7 +10,7 @@
 ## ❗ Requirements
 
 - Apache Web Server
-- PHP 7.4+ (may vary depending on project)
+- PHP
 - MySQL or MariaDB
 - Composer (optional, only if dependencies are used)
 - Git (optional, for cloning the repository)
