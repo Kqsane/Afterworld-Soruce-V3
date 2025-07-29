@@ -4,3 +4,5 @@
 <p align="center">
     <img src="https://github.com/Kqsane/Afterworld-Soruce-V3/blob/main/AFTERWORLD.png" width="420">
 </p>
+
+Instructions to install soon.
