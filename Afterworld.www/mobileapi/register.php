@@ -1,0 +1,1 @@
+{"Status": "Error", "Message": "Due of safety reasons, registering through your phone is disabled. If you want to register your account, you must go to the website."}
