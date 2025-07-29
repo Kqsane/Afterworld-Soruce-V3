@@ -18,3 +18,7 @@
 ---
 
 i saldy cannot give any of the database structure or backups as i do not have acess to them. you can recreate the database by sifting through the code tho ig
+
+tbh i don't really know how to run ts myself 🥀
+
+have fun
