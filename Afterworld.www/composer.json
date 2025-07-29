@@ -1,0 +1,7 @@
+{
+    "require": {
+        "davedevelopment/stiphle": "^0.9.4",
+        "symfony/cache": "^7.3",
+        "predis/predis": "^3.0"
+    }
+}

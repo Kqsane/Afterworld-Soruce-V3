@@ -1,0 +1,77 @@
+/* u arent slick btw, go have a life other than looking at the code LOL */
+.video-list-card {
+  display: flex;
+  gap: 16px;
+  background-color: #fff;
+  color: #000;
+  padding: 12px;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.video-thumb {
+  position: relative;
+}
+
+.video-thumb img {
+  width: 280px;
+  height: 158px; /* 16:9 aspect ratio */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-title {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.video-title:hover {
+  text-decoration: underline;
+}
+
+.video-meta {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.video-channel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.channel-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.channel-name {
+  font-size: 14px;
+  color: #333;
+}
