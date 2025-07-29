@@ -1,0 +1,14 @@
+newmtl Player11Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.4 0.4 0.4 
+
+d 1
+
+Ns 2295
+
+map_Ka 8370f904c9ae2d61ea0313b4d0ed897e
+map_Kd 8370f904c9ae2d61ea0313b4d0ed897e
+map_d 8370f904c9ae2d61ea0313b4d0ed897e
+
