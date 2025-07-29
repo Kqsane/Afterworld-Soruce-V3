@@ -1,0 +1,591 @@
+.StandardHeader2ndLvlText, h2 .text, .StandardHeader2ndLvl, h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.StandardDividerRight, .divider-right {
+    border-right: 1px solid #ccc;
+}
+
+.StandardDividerBottom, .divider-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e6e6e6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 12px;
+}
+
+.UserOfflineMessage {
+    font-family: Verdana;
+    font-size: 8pt;
+    color: Gray;
+}
+
+a:link, a:visited, a:active {
+    color: #095fb5;
+}
+
+a {
+    text-decoration: none;
+    color: #095fb5;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a img {
+    border: none;
+}
+
+.UserBlurb {
+    overflow: hidden;
+    width: 348px;
+    padding: 5px 5px 5px 5px;
+    line-height: 20px;
+    background-color: #FFF;
+    margin-bottom: 10px;
+}
+
+.GrayButton, .GrayButton:link, .GrayButton:visited, .GrayButton:active {
+    background: url(/img/bg-form_btn_lg-tile.png) repeat-x top left;
+    border: 1px solid #777;
+    padding: 4px 8px 0;
+    height: 21px;
+    font: 11px Arial, Helvetica, sans-serif;
+    color: #000;
+    text-align: center;
+    display: block;
+    float: left;
+}
+
+.SendMessageProfileBtnDiv {
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+
+.clear {
+    clear: both;
+    float: none !important;
+}
+
+.clear {
+    overflow: hidden;
+    width: 100%;
+    font-size: 0;
+}
+
+#Body {
+    background: white !important;
+}
+
+}
+#RepositionBody {
+    background-color: transparent;
+}
+
+#Body {
+    _overflow: hidden;
+    min-height: 550px;
+    padding: 5px 0 25px 0;
+    background: white;
+    margin: 0 auto;
+    width: 900px;
+}
+
+#Footer, #MasterContainer, #BodyWrapper {
+    background: none !important;
+}
+
+div#testingSitePanelWrapper, #BodyWrapper {
+    margin: 36px auto;
+    width: 970px;
+    background: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e6e6e6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 12px;
+}
+
+#UserPlacesPane {
+    clear: both;
+    background-color: #FFF;
+}
+
+#UserPlacesPane {
+    clear: both;
+    background-color: #FFF;
+}
+
+.StandardHeader2ndLvl, h2 {
+    margin: 12px 0 20px;
+}
+
+.StandardDividerBottom, .divider-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.StandardDividerLeft, .divider-left {
+    border-left: 1px solid #ccc;
+}
+
+.StandardDividerBottom, .divider-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.StandardDividerBottom, .divider-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.StandardHeader2ndLvl, h2 {
+    margin: 12px 0 20px;
+}
+
+.StandardHeader2ndLvlText, h2 .text, .StandardHeader2ndLvl, h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+
+.Label {
+    font-weight: bold;
+}
+
+a img {
+    border: none;
+}
+
+a.ad img {
+    display: block;
+    border: none;
+}
+
+.btn-blue,.btn-blue:link,.btn-blue:active,.btn-blue:visited,.btn-neutral,.btn-neutral:link,.btn-neutral:active,.btn-neutral:visited {
+    border-color: #0852b7;
+    background-color: #0852b7;
+    background-image: url(/img/bg-btn-blue.png);
+    color: #00243d;
+}
+
+.btn-small {
+    padding: 1px 7px 0 7px;
+    height: 20px;
+    min-width: 40px;
+    font-size: 15px;
+    line-height: 18px;
+    background-position: left -160px;
+}
+
+.btn-large, .btn-medium, .btn-small {
+    margin: 0;
+    display: inline-block;
+    zoom: 1;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: -1px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.btn-text {
+    display: block;
+    margin: 0;
+    position: relative;
+    color: #fff;
+}
+
+.StandardBlankBox, .blank-box {
+    border: 1px solid #ccc;
+}
+
+a.ad {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+a.ad img {
+    display: block;
+    border: none;
+    justify-content: center;
+    align-items: center;
+}
+
+a img {
+    border: none;
+}
+
+.Badge {
+    margin: 10px 10px;
+    text-align: center;
+}
+
+a:link, a:visited, a:active {
+    color: #095fb5;
+}
+
+a {
+    text-decoration: none;
+    color: #095fb5;
+}
+
+.Badge {
+    margin: 10px 10px;
+    text-align: center;
+}
+
+.Badge {
+  width: 97px;
+  height: 125px;
+  margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.BadgeImage img {
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin: 0 auto;
+}
+
+.BadgeLabel {
+  width: 75px;
+  max-height: 28px;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0 auto;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+#UserAssetsPane .AssetsMenuItem {
+    padding: 10px;
+    text-align: left;
+}
+
+#UserAssetsPane .AssetsMenuItem_Selected {
+    padding: 10px;
+    background: #EFEFEF;
+    border: 1px solid #CCC;
+    font-weight: bold;
+    border-right: none;
+    text-align: left;
+}
+
+#UserAssetsPane .AssetsMenuButton_Selected {
+    font-weight: bold;
+}
+
+#UserAssetsPane .AssetsMenuButton, #UserAssetsPane .AssetsMenuButton_Selected {
+    color: #363636;
+    font: normal 14px / normal Arial;
+    text-decoration: none;
+}
+
+#UserContainer #AssetsMenu {
+    float: left;
+    width: 158px;
+}
+
+.StandardDividerRight, .divider-right {
+    border-right: 1px solid #ccc;
+}
+
+#UserContainer .Asset {
+    margin: 0 10px 15px 10px;
+    vertical-align: top;
+    width: 112px;
+}
+
+a img {
+    border: none;
+}
+
+#UserContainer .Asset .AssetThumbnail {
+    height: 110px;
+    position: relative;
+    text-align: center;
+    width: 110px;
+}
+
+#UserContainer .Asset .AssetDetails {
+    overflow: hidden;
+    padding: 2px 0 6px 0;
+    text-align: left;
+    width: 110px;
+}
+
+#UserContainer .AssetName a {
+    font-size: .9em;
+    font-weight: bold;
+    line-height: 1.5em;
+    vertical-align: top;
+}
+
+#UserContainer .Label, #UserContainer .Detail, #UserContainer .DetailHighlighted, #UserContainer .PriceInRobux, #UserContainer .PriceInTickets {
+    font-size: .8em;
+}
+
+.Label {
+    font-weight: bold;
+}
+
+#UserContainer .Label, #UserContainer .Detail, #UserContainer .DetailHighlighted, #UserContainer .PriceInRobux, #UserContainer .PriceInTickets {
+    font-size: .8em;
+}
+
+#UserContainer .Asset .AssetDetails {
+    overflow: hidden;
+    padding: 2px 0 6px 0;
+    text-align: left;
+    width: 110px;
+}
+
+#UserContainer .PriceInRobux {
+    color: Green;
+    font-weight: bold;
+}
+
+#UserContainer .Label, #UserContainer .Detail, #UserContainer .DetailHighlighted, #UserContainer .PriceInRobux, #UserContainer .PriceInTickets {
+    font-size: .8em;
+}
+
+#UserContainer #AssetsContent .HeaderPager, #UserContainer #FavoritesContent .HeaderPager, #UserContainer #AssetsContent .FooterPager, #UserContainer #FavoritesContent .FooterPager {
+    clear: both;
+    margin: 0 12px 0 10px;
+    padding: 2px 0;
+    text-align: center;
+}
+
+.FooterPager {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.PagingAction.disabled, .pager.disabled, .PagingAction.disabled:hover, .pager.disabled:hover {
+    background-position: 0 -27px;
+    cursor: default;
+}
+
+.PagingAction.Previous, .pager.previous {
+    display: inline-block;
+    background: url(http://svteto.xyz/images/Buttons/Arrows/btn-silver-left-27.png) no-repeat top left;
+    width: 27px;
+    height: 27px;
+}
+
+#UserContainer #AssetsContent .HeaderPager, #UserContainer #FavoritesContent .HeaderPager, #UserContainer #AssetsContent .FooterPager, #UserContainer #FavoritesContent .FooterPager {
+    clear: both;
+    margin: 0 12px 0 10px;
+    padding: 2px 0;
+    text-align: center;
+}
+
+.FooterPager {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.PagingAction.Next, .pager.next {
+    display: inline-block;
+    background: url(http://svteto.xyz/images/Buttons/Arrows/btn-silver-right-27.png) no-repeat top left;
+    width: 27px;
+    height: 27px;
+}
+
+#UserContainer .PriceInTickets {
+    color: #fbb117;
+    font-weight: bold;
+}
+
+a:link, a:visited, a:active {
+    color: #095fb5;
+}
+
+#UserContainer .AssetName a {
+    font-size: .9em;
+    font-weight: bold;
+    line-height: 1.5em;
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    color: #095fb5;
+}
+
+a {
+    text-decoration: none;
+}
+
+#UserContainer .Asset .AssetDetails {
+    overflow: hidden;
+    padding: 2px 0 6px 0;
+    text-align: left;
+    width: 110px;
+}
+
+#UserAssetsPane .AssetsMenuItem:hover {
+    background: #EFEFEF;
+}
+
+.ThumbnailImage {
+    border: solid 1px #CCC;
+}
+
+div.accordion .ui-state-default {
+    background: url(http://svteto.xyz/images/RobloxUI/bg-silver_bar.png) repeat-x top;
+    height: 22px;
+    padding-top: 3px;
+    padding-bottom: 0;
+    padding-left: 23px;
+}
+
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    margin-top: -9px;
+}
+
+.ui-state-default .ui-icon {
+    background-image: url(http://svteto.xyz/images/RobloxUI/ui-icons_363636_256x240.png);
+}
+
+.ui-icon-triangle-1-e {
+    background-position: -32px -16px;
+}
+
+.ui-icon-triangle-1-s {
+    background-position: -64px -16px;
+}
+
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url(http://svteto.xyz/images/RobloxUI/ui-icons_363636_256x240.png);
+}
+
+.ui-accordion .ui-accordion-header {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    margin-top: 2px;
+    padding: .5em .5em .5em .7em;
+    zoom: 1;
+}
+
+.ui-accordion .ui-accordion-icons {
+    padding-left: 2.2em;
+}
+
+.ui-accordion .ui-accordion-header {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    margin-top: 2px;
+    padding: .5em .5em .5em .7em;
+    zoom: 1;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #9e9e9e;
+    background: #d6d6d6 url(http://svteto.xyz/images/RobloxUI/ui-bg_flat_100_d6d6d6_40x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #363636;
+}
+
+.StandardHeader3rdLvl, h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #363636;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    display: inline-block;
+}
+
+div.accordion .ui-state-default:hover {
+    background-position: bottom;
+}
+
+div.accordion .ui-accordion-content-active {
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+div.accordion .ui-accordion-header-active {
+    border-bottom: none;
+    background-image: none;
+}
+
+.MultiplayerVisit, .MultiplayerVisitDisabled {
+    width: 212px;
+    height: 54px;
+    background: url(http://svteto.xyz/images/cssspecific/rbx2/btn_play_54h.png);
+}
+
+.ImageButton {
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    margin: 0;
+    display: inline-block;
+}
+
+div.VisitButtonsLeftCentered {
+    width: 100%;
+    float: none;
+    text-align: center;
+    display: block;
+}
+
+#UserPlaces .Place .PlayOptions {
+    margin: 10px 0 0 0;
+    display: block;
+    min-height: 48px;
+}
+
+.UserOnlineMessage {
+    color: Red;
+}
