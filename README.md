@@ -4,7 +4,7 @@
 > This revival's source is **incomplete** and **abandoned**. If you encounter bugs or anything related, you're probably going to have to fix it yourself.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kqsane/Afterworld-Soruce-V3/main/AFTERWORLD.png" width="420">
+  <img src="https://github.com/Kqsane/Afterworld-Soruce-V3/blob/main/AFTERWORLD.png" width="420">
 </p>
 
 ## ❗ Requirements
