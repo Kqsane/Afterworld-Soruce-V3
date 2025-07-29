@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:ns1="http://roblox.com/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Body>
+    <ns1:OpenJobEx>
+      <ns1:job>
+        <ns1:id>00000000-0000-0000-0000-000000000001</ns1:id>
+        <ns1:expirationInSeconds>60</ns1:expirationInSeconds>
+        <ns1:category>0</ns1:category>
+        <ns1:cores>1</ns1:cores>
+      </ns1:job>
+      <ns1:script xsi:nil="true" />
+    </ns1:OpenJobEx>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
